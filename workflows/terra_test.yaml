@@ -45,7 +45,7 @@ jobs:
         ports:
           - 4566:4566
         env:
-          SERVICES: s3,dynamodb,iam,sts,ec2,vpc,route53,cloudwatch,config,kms
+          SERVICES: s3,dynamodb,iam,sts,ec2,vpc,route53,cloudwatch,config,kms,logs
           DEBUG: 1
     steps:
       - name: Checkout code
@@ -61,7 +61,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v6
         with:
-          go-version: '1.18'
+          go-version: '1.24.x'
 
       - name: Copy mock provider for stack
         run: |
